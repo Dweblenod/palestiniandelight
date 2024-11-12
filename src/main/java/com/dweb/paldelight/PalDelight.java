@@ -1,16 +1,14 @@
-package com.dweb.palestiniandelight;
+package com.dweb.paldelight;
 
-import com.dweb.palestiniandelight.block.PDBlocks;
-import com.dweb.palestiniandelight.item.PDCreativeTab;
-import com.dweb.palestiniandelight.item.PDItems;
+import com.dweb.paldelight.block.PDBlocks;
+import com.dweb.paldelight.item.PDCreativeTab;
+import com.dweb.paldelight.item.PDItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -24,8 +22,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(PalestinianDelight.MOD_ID)
-public class PalestinianDelight {
+@Mod(PalDelight.MOD_ID)
+public class PalDelight {
     public static final String MOD_ID = "paldelight";
 
     public static ResourceLocation id(String path) {
@@ -35,7 +33,7 @@ public class PalestinianDelight {
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public PalestinianDelight() {
+    public PalDelight() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -45,9 +43,6 @@ public class PalestinianDelight {
         PDCreativeTab.CREATIVE_MODE_TABS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, PDConfig.SPEC);
@@ -63,12 +58,6 @@ public class PalestinianDelight {
         LOGGER.info(PDConfig.magicNumberIntroduction + PDConfig.magicNumber);
 
         PDConfig.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
-    }
-
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(PDItems.EXAMPLE_BLOCK_ITEM);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

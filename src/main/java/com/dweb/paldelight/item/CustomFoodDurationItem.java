@@ -1,4 +1,4 @@
-package com.dweb.palestiniandelight.item;
+package com.dweb.paldelight.item;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
