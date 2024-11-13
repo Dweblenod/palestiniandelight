@@ -30,7 +30,6 @@ public class PalDelight {
         return new ResourceLocation(MOD_ID, path);
     }
 
-    // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public PalDelight() {

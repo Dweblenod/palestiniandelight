@@ -23,7 +23,9 @@ public final class PDItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         simpleItem(PDItems.OLIVE);
+        simpleItem(PDItems.OLIVE_OIL);
         simpleItem(PDItems.SUMAC_BERRIES);
+        simpleItem(PDItems.ROSE_WATER);
 
         simpleItem(PDItems.FATAYER);
         simpleItem(PDItems.KNAFEH);

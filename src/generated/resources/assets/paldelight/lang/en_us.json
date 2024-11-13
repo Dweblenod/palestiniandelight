@@ -1,7 +1,12 @@
 {
+  "block.paldelight.olive_log": "Olive Log",
+  "block.paldelight.stripped_olive_log": "Stripped Olive Log",
   "item.paldelight.fatayer": "Fatayer",
   "item.paldelight.knafeh": "Knafeh",
   "item.paldelight.olive": "Olive",
+  "item.paldelight.olive.tooltip": "Rather bitter as is. But it holds a lot of potential.",
+  "item.paldelight.olive_oil": "Olive Oil",
+  "item.paldelight.rose_water": "Rose Water",
   "item.paldelight.sumac_berries": "Sumac Berries",
   "item.paldelight.sumac_berries.tooltip": "Medicinal! Has a small chance of curing poison upon consumption.",
   "item_group.paldelight.paldelight": "Palestinian Delights"

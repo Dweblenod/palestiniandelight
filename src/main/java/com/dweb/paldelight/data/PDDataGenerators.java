@@ -1,6 +1,7 @@
 package com.dweb.paldelight.data;
 
 import com.dweb.paldelight.PalDelight;
+import com.dweb.paldelight.data.loot.PDLootTableProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -18,6 +19,9 @@ public class PDDataGenerators {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
 
+        generator.addProvider(event.includeServer(), PDLootTableProvider.providers(packOutput));
+
+        generator.addProvider(event.includeClient(), new PDBlockStateProvider(packOutput, fileHelper));
         generator.addProvider(event.includeClient(), new PDItemModelProvider(packOutput, fileHelper));
         generator.addProvider(event.includeClient(), new PDLanguageProvider(packOutput));
     }
