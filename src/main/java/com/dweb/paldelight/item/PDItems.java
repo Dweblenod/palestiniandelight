@@ -20,15 +20,14 @@ public class PDItems {
     public static final RegistryObject<Item> SUMAC_BERRIES = ITEMS.register("sumac_berries", () -> new SumacBerriesItem(new Item.Properties()));
     public static final RegistryObject<Item> ROSE_WATER = ITEMS.register("rose_water", () -> new BottledDrinkItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.1f).build())));
 
-    public static final RegistryObject<Item> FATAYER = ITEMS.register("fatayer", () -> new CustomFoodDurationItem(24, new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(3f).build())));
-    public static final RegistryObject<Item> KNAFEH = ITEMS.register("knafeh", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationMod(8f).build())));
+    public static final RegistryObject<Item> FATAYER = ITEMS.register("fatayer", () -> new CustomFoodDurationItem(24, new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(1.5f).build())));
+    public static final RegistryObject<Item> KNAFEH = ITEMS.register("knafeh", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationMod(3f).build())));
 
     //public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(PDBlocks.EXAMPLE_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> OLIVE_LOG = blockItem(PDBlocks.OLIVE_LOG);
     public static final RegistryObject<BlockItem> STRIPPED_OLIVE_LOG = blockItem(PDBlocks.STRIPPED_OLIVE_LOG);
 
-    public static RegistryObject<BlockItem> blockItem(RegistryObject<? extends Block> block)
-    {
+    public static RegistryObject<BlockItem> blockItem(RegistryObject<? extends Block> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
     }
 }
