@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "paldelight:block/sumac_top_fruiting"
+  }
+}

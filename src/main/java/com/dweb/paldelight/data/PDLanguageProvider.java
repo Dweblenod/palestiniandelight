@@ -28,6 +28,7 @@ public class PDLanguageProvider extends LanguageProvider {
 
         addBlock(PDBlocks.OLIVE_LOG, "Olive Log");
         addBlock(PDBlocks.STRIPPED_OLIVE_LOG, "Stripped Olive Log");
+        addItem(PDItems.SUMAC, "Sumac");
 
         add(PDCreativeTab.TAB_TITLE, "Palestinian Delights");
     }

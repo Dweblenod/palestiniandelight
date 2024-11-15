@@ -20,8 +20,10 @@ public class PDCreativeTab {
     private static void addDisplayItems(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output output) {
         output.accept(PDItems.OLIVE.get());
         output.accept(PDItems.OLIVE_OIL.get());
-        output.accept(PDItems.SUMAC_BERRIES.get());
         output.accept(PDItems.ROSE_WATER.get());
+
+        output.accept(PDItems.SUMAC_BERRIES.get());
+        output.accept(PDItems.SUMAC.get());
 
         output.accept(PDItems.FATAYER.get());
         output.accept(PDItems.KNAFEH.get());

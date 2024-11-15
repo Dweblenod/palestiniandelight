@@ -1,7 +1,6 @@
 package com.dweb.paldelight.data.loot;
 
 import com.dweb.paldelight.PalDelight;
-import com.dweb.paldelight.block.PDBlocks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -23,6 +22,7 @@ public class PDBlockLootTables extends BlockLootSubProvider {
         //add(PDBlocks.EXAMPLE_BLOCK.get());
         dropSelf(OLIVE_LOG.get());
         dropSelf(STRIPPED_OLIVE_LOG.get());
+        dropWhenSilkTouch(SUMAC.get()); //TODO perhaps use best tool instead of silk touch
     }
 
     @Override

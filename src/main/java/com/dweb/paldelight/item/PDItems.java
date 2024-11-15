@@ -26,6 +26,7 @@ public class PDItems {
     //public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(PDBlocks.EXAMPLE_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> OLIVE_LOG = blockItem(PDBlocks.OLIVE_LOG);
     public static final RegistryObject<BlockItem> STRIPPED_OLIVE_LOG = blockItem(PDBlocks.STRIPPED_OLIVE_LOG);
+    public static final RegistryObject<BlockItem> SUMAC = blockItem(PDBlocks.SUMAC);
 
     public static RegistryObject<BlockItem> blockItem(RegistryObject<? extends Block> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

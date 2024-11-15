@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "half=lower,berries=false": { "model": "paldelight:block/sumac_bottom" },
+    "half=lower,berries=true": { "model": "paldelight:block/sumac_bottom" },
+    "half=upper,berries=false": { "model": "paldelight:block/sumac_top" },
+    "half=upper,berries=true": { "model": "paldelight:block/sumac_top_fruiting" }
+  }
+}
