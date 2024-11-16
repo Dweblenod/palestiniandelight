@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "savanna",
+    "wooded_badlands"
+  ],
+  "features": "paldelight:olive_tree",
+  "step": "vegetal_decoration"
+}

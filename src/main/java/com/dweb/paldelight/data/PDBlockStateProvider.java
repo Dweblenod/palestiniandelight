@@ -16,8 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;
 
-import static com.dweb.paldelight.block.PDBlocks.OLIVE_LOG;
-import static com.dweb.paldelight.block.PDBlocks.STRIPPED_OLIVE_LOG;
+import static com.dweb.paldelight.block.PDBlocks.*;
 
 public class PDBlockStateProvider extends BlockStateProvider {
     public PDBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -28,9 +27,9 @@ public class PDBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         log(OLIVE_LOG);
         log(STRIPPED_OLIVE_LOG);
+        simpleBlockWithItem(OLIVE_LEAVES.get());
+        flatItem(PDItems.OLIVE_SAPLING, PDBlockStateProvider::textureLocation);
 
-        //simpleBlock(PDBlocks.SUMAC, id -> models().cross(id.getPath(), textureLocation(id)).renderType("cutout"));
-        //simpleBlock(PDBlocks.SUMAC, id -> models().cross(id.getLocation().getPath(), textureLocation(id.getLocation())).renderType("cutout"));
         flatItem(PDItems.SUMAC, id -> textureLocation(id.withSuffix("_top_fruiting")));
     }
 
@@ -45,9 +44,24 @@ public class PDBlockStateProvider extends BlockStateProvider {
         rotatedPillarPlusItem(block, blockId -> models().cubeColumn(blockId.getPath(), textureLocation(blockId), textureLocation(blockId).withSuffix("_top")));
     }
 
+    public void simpleBlockWithItem(Block block) {
+        simpleBlock(block, cubeAll(block));
+        simpleBlockItem(block, cubeAll(block));
+    }
+
+    public void simpleBlock(RegistryObject<? extends Block> block, Function<ResourceLocation, ModelFile> modelProvider)
+    {
+        simpleBlock(block.get(), modelProvider.apply(block.getId()));
+    }
+
     @NotNull
     private static ResourceLocation textureLocation(ResourceLocation blockId) {
         return blockId.withPrefix(ModelProvider.BLOCK_FOLDER + "/");
+    }
+
+    @NotNull
+    private static ResourceLocation textureLocation(String blockName) {
+        return PalDelight.id(ModelProvider.BLOCK_FOLDER + "/" + blockName);
     }
 
     public void rotatedPillarPlusItem(RegistryObject<Block> block, Function<ResourceLocation, ModelFile> modelProvider) {

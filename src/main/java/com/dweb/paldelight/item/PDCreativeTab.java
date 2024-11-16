@@ -30,5 +30,7 @@ public class PDCreativeTab {
 
         output.accept(PDItems.OLIVE_LOG.get());
         output.accept(PDItems.STRIPPED_OLIVE_LOG.get());
+        output.accept(PDItems.OLIVE_LEAVES.get());
+        output.accept(PDItems.OLIVE_SAPLING.get());
     }
 }
