@@ -4,6 +4,29 @@ Do your own Changelog in the [Keep a Changelog](https://keepachangelog.com/en/1.
 
 ## [Unreleased]
 
+## [1.20.1-1.1.0] - 2024-11-17
+
+### As of this update, the mod is no longer made using MCreator.
+### It has been rewritten by hand!
+
+### Added
+- Olive wood/stripped olive log/stripped olive wood
+- Olive planks/ornate olive planks
+- Ancient olive tree/fancy olive tree configured features
+- Bee variants of all olive trees
+
+### Changed
+- Recipes are now much more dependent on either Farmers Delight or Pams Harvestcraft
+
+### Fixed
+- Olives and olive trees are now both renewable
+- Olive saplings and sumac have appropriate placement
+- Correct tagging for blocks/items
+
+### Contributors for this release
+
+- Dweblenod
+
 ## [1.20.1-1.0.0] - 2024-09-04
 
 ### Added
