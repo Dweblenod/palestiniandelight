@@ -1,6 +1,7 @@
 package com.dweb.paldelight.data.tag;
 
 import com.dweb.paldelight.PalDelight;
+import com.dweb.paldelight.item.PDItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -24,10 +25,10 @@ public class PDItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         copy(PDTags.Blocks.OLIVE_LOGS, PDTags.Items.OLIVE_LOGS);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
+        tag(OLIVE).add(PDItems.OLIVE.get());
     }
     
-    //pams compat
-    //public static final TagKey<Item> FRUITS = forgeTag("fruits");
+    public static final TagKey<Item> OLIVE = forgeTag("vegetables/olive");
     
     private static TagKey<Item> forgeTag(String name) {
         return ItemTags.create(new ResourceLocation("forge", name));

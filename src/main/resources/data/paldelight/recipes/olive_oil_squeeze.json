@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:vegetables/olive"
+    },
+    {
+      "tag": "forge:vegetables/olive"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "paldelight:olive_oil",
+    "count": 1
+  }
+}

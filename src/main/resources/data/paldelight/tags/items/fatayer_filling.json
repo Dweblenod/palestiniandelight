@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:cheese",
+    "#forge:vegetables/spinach",
+    "#forge:crops/spinach",
+    "#forge:rawmutton"
+  ]
+}
