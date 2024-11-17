@@ -22,7 +22,7 @@ public class PDLogBlock extends RotatedPillarBlock {
     
     @Override
     public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
-        if(toolAction == ToolActions.AXE_STRIP && context.getItemInHand().canPerformAction(ToolActions.AXE_STRIP))
+        if (toolAction == ToolActions.AXE_STRIP && context.getItemInHand().canPerformAction(ToolActions.AXE_STRIP))
             return this.strippedVariant.get();
         else
             return super.getToolModifiedState(state, context, toolAction, simulate);

@@ -23,13 +23,15 @@ public class PDBlockStateProvider extends BlockStateProvider {
     public PDBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, PalDelight.MOD_ID, exFileHelper);
     }
-
+    
     @Override
     protected void registerStatesAndModels() {
         log(OLIVE_LOG);
         log(STRIPPED_OLIVE_LOG);
         wood(OLIVE_WOOD, OLIVE_LOG);
         wood(STRIPPED_OLIVE_WOOD, STRIPPED_OLIVE_LOG);
+        simpleBlockWithItem(OLIVE_PLANKS.get());
+        simpleBlockWithItem(ORNATE_OLIVE_PLANKS.get());
         {
             ModelFile nonFruiting = cubeAll("olive_leaves");
             ModelFile fruiting = cubeAll("olive_leaves_fruiting");
@@ -39,22 +41,20 @@ public class PDBlockStateProvider extends BlockStateProvider {
             simpleBlockItem(OLIVE_LEAVES.get(), nonFruiting);
         }
         flatItem(PDItems.OLIVE_SAPLING, PDBlockStateProvider::textureLocation);
-
+        
         flatItem(PDItems.SUMAC, id -> textureLocation(id.withSuffix("_top_fruiting")));
     }
     
-    public ModelFile cubeAll(String name)
-    {
+    public ModelFile cubeAll(String name) {
         return models().cubeAll(name, textureLocation(name));
     }
-
-    public void flatItem(RegistryObject<? extends BlockItem> item, Function<ResourceLocation, ResourceLocation> textureProvider)
-    {
+    
+    public void flatItem(RegistryObject<? extends BlockItem> item, Function<ResourceLocation, ResourceLocation> textureProvider) {
         itemModels().withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 textureProvider.apply(item.getId()));
     }
-
+    
     public void log(RegistryObject<Block> log) {
         rotatedPillarPlusItem(log, blockId -> models().cubeColumn(blockId.getPath(), textureLocation(blockId), textureLocation(blockId).withSuffix("_top")));
     }
@@ -62,27 +62,26 @@ public class PDBlockStateProvider extends BlockStateProvider {
     public void wood(RegistryObject<Block> wood, RegistryObject<Block> log) {
         rotatedPillarPlusItem(wood, blockId -> models().cubeColumn(blockId.getPath(), textureLocation(log.getId()), textureLocation(log.getId())));
     }
-
+    
     public void simpleBlockWithItem(Block block) {
         simpleBlock(block, cubeAll(block));
         simpleBlockItem(block, cubeAll(block));
     }
-
-    public void simpleBlock(RegistryObject<? extends Block> block, Function<ResourceLocation, ModelFile> modelProvider)
-    {
+    
+    public void simpleBlock(RegistryObject<? extends Block> block, Function<ResourceLocation, ModelFile> modelProvider) {
         simpleBlock(block.get(), modelProvider.apply(block.getId()));
     }
-
+    
     @NotNull
     private static ResourceLocation textureLocation(ResourceLocation blockId) {
         return blockId.withPrefix(ModelProvider.BLOCK_FOLDER + "/");
     }
-
+    
     @NotNull
     private static ResourceLocation textureLocation(String blockName) {
         return PalDelight.id(ModelProvider.BLOCK_FOLDER + "/" + blockName);
     }
-
+    
     public void rotatedPillarPlusItem(RegistryObject<Block> block, Function<ResourceLocation, ModelFile> modelProvider) {
         ModelFile model = modelProvider.apply(block.getId());
         axisBlock((RotatedPillarBlock) block.get(), model, model);

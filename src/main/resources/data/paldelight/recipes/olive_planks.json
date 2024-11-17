@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "paldelight:logs/olive"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "paldelight:olive_planks"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "planks",
+  "key": {
+    "p": {
+      "item": "paldelight:olive_planks"
+    }
+  },
+  "pattern": [
+    " p ",
+    "p p",
+    " p "
+  ],
+  "result": {
+    "count": 4,
+    "item": "paldelight:ornate_olive_planks"
+  }
+}

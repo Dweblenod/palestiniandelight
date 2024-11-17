@@ -23,19 +23,19 @@ import net.minecraft.world.phys.BlockHitResult;
 public class OliveLeaves extends LeavesBlock {
     public static final BooleanProperty FRUITING = PDBlocks.FRUITING;
     //public static final IntegerProperty AGE = BlockStateProperties.AGE_25;
-
+    
     public OliveLeaves(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FRUITING, false).setValue(DISTANCE, 7).setValue(PERSISTENT, false).setValue(WATERLOGGED, false));
         //this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0).setValue(FRUITING, false));
     }
-
+    
     @SuppressWarnings("deprecation")
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if(level.random.nextFloat() <= 0.025F && airExposed(level, pos))
+        if (level.random.nextFloat() <= 0.025F && airExposed(level, pos))
             level.setBlock(pos, state.setValue(FRUITING, true), UPDATE_ALL);
-
+        
         super.randomTick(state, level, pos, random);
     }
     
@@ -47,17 +47,16 @@ public class OliveLeaves extends LeavesBlock {
     @SuppressWarnings("deprecation")
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if(state.getValue(FRUITING))
-        {
+        if (state.getValue(FRUITING)) {
             popResource(level, pos, new ItemStack(PDItems.OLIVE.get()));
-
+            
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 0.5F, 1.3F);
-
+            
             level.setBlock(pos, state.setValue(FRUITING, false), UPDATE_ALL);
-
+            
             return InteractionResult.SUCCESS;
         }
-
+        
         return super.use(state, level, pos, player, hand, hit);
     }
 
@@ -86,34 +85,30 @@ public class OliveLeaves extends LeavesBlock {
 
         super.randomTick(state, level, pos, random);
     }*/
-
-    public boolean airExposed(Level level, BlockPos pos)
-    {
-        for(Direction direction : Direction.values())
-        {
-            if(direction.equals(Direction.UP))
+    
+    public boolean airExposed(Level level, BlockPos pos) {
+        for (Direction direction : Direction.values()) {
+            if (direction.equals(Direction.UP))
                 continue; //dont want to drop olives upwards
             
             BlockState iterateState = level.getBlockState(pos.relative(direction));
-            if(iterateState.isAir() || iterateState.canBeReplaced())
+            if (iterateState.isAir() || iterateState.canBeReplaced())
                 return true;
         }
-
+        
         return false;
     }
     
     @Override
-    public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction face)
-    {
+    public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction face) {
         return 5;
     }
     
     @Override
-    public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction face)
-    {
+    public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction face) {
         return 5;
     }
-
+    
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
