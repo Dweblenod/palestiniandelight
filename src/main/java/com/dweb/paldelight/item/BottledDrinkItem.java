@@ -15,51 +15,59 @@ import net.minecraft.world.level.Level;
 
 public class BottledDrinkItem extends Item {
     private final SoundEvent drinkSound;
-
+    
     public BottledDrinkItem(Properties properties) {
         super(properties);
         this.drinkSound = SoundEvents.GENERIC_DRINK;
     }
-
+    
     public BottledDrinkItem(SoundEvent drinkSound, Properties properties) {
         super(properties);
         this.drinkSound = drinkSound;
     }
-
+    
     @Override
     public SoundEvent getDrinkingSound() {
         return drinkSound;
     }
-
+    
     @Override
     public SoundEvent getEatingSound() {
         return drinkSound;
     }
-
+    
     @Override
     public UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.DRINK;
     }
-
+    
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
-        super.finishUsingItem(stack, level, entity);
-        if (entity instanceof ServerPlayer serverplayer) {
-            CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, stack);
-            serverplayer.awardStat(Stats.ITEM_USED.get(this));
+        //based off ConsumableItem in FD
+        ItemStack containerStack = stack.getCraftingRemainingItem();
+        
+        if (stack.isEdible()) {
+            super.finishUsingItem(stack, level, entity);
+        } else {
+            if (entity instanceof ServerPlayer player) {
+                CriteriaTriggers.CONSUME_ITEM.trigger(player, stack);
+                player.awardStat(Stats.ITEM_USED.get(this));
+                
+                if (!player.isCreative())
+                    stack.shrink(1);
+            }
         }
-
-        //turns into an empty bottle if not a creative mode player
-        if (entity instanceof Player player && !player.isCreative()) {
-            ItemStack emptyBottle = new ItemStack(Items.GLASS_BOTTLE);
-
-            if (stack.isEmpty())
-                return emptyBottle;
-
-            //throw on ground if cant add to inventory
-            if (player.getInventory().add(emptyBottle))
-                player.drop(emptyBottle, false);
+        
+        if (stack.isEmpty()) {
+            return containerStack;
+        } else {
+            if (entity instanceof Player player) {
+                if (!player.isCreative() && !player.getInventory().add(containerStack)) {
+                    player.drop(containerStack, false); //throw on ground if cant add to inventory
+                }
+            }
+            
+            return stack;
         }
-        return super.finishUsingItem(stack, level, entity);
     }
 }

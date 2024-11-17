@@ -3,23 +3,24 @@
     {
       "type": "forge:mod_loaded",
       "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "pamhc2foodcore"
     }
   ],
   "type": "farmersdelight:cooking",
-  "cookingtime": 220,
+  "cookingtime": 200,
   "experience": 1.2,
   "ingredients": [
     {
       "tag": "forge:dough"
     },
     {
-      "tag": "forge:milk"
+      "tag": "forge:cheese"
     },
     {
-      "tag": "forge:milk"
-    },
-    {
-      "tag": "forge:milk"
+      "tag": "forge:cream"
     },
     {
       "item": "minecraft:sugar"
