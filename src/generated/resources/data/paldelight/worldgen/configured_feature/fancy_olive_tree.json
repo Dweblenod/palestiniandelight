@@ -20,6 +20,7 @@
         "Name": "paldelight:olive_leaves",
         "Properties": {
           "distance": "7",
+          "fruiting": "false",
           "persistent": "false",
           "waterlogged": "false"
         }

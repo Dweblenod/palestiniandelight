@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "fruiting=false": {
       "model": "paldelight:block/olive_leaves"
+    },
+    "fruiting=true": {
+      "model": "paldelight:block/olive_leaves_fruiting"
     }
   }
 }

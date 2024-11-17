@@ -22,7 +22,10 @@ public class PDBlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(OLIVE_LOGS).add(PDBlocks.OLIVE_LOG.get(), PDBlocks.STRIPPED_OLIVE_LOG.get());
-        tag(BlockTags.LOGS).addTag(OLIVE_LOGS);
+        tag(OLIVE_LOGS).add(PDBlocks.OLIVE_LOG.get(), PDBlocks.STRIPPED_OLIVE_LOG.get(), PDBlocks.OLIVE_WOOD.get(), PDBlocks.STRIPPED_OLIVE_WOOD.get());
+        tag(BlockTags.LOGS_THAT_BURN).addTag(OLIVE_LOGS); //LOGS includes LOGS_THAT_BURN
+        tag(BlockTags.OVERWORLD_NATURAL_LOGS).addTag(OLIVE_LOGS);
+        
+        tag(BlockTags.LEAVES).add(PDBlocks.OLIVE_LEAVES.get());
     }
 }

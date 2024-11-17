@@ -23,9 +23,10 @@ public class PDItems {
     public static final RegistryObject<Item> FATAYER = ITEMS.register("fatayer", () -> new CustomFoodDurationItem(24, new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(1.5f).build())));
     public static final RegistryObject<Item> KNAFEH = ITEMS.register("knafeh", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationMod(3f).build())));
 
-    //public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(PDBlocks.EXAMPLE_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> OLIVE_LOG = blockItem(PDBlocks.OLIVE_LOG);
     public static final RegistryObject<BlockItem> STRIPPED_OLIVE_LOG = blockItem(PDBlocks.STRIPPED_OLIVE_LOG);
+    public static final RegistryObject<BlockItem> OLIVE_WOOD = blockItem(PDBlocks.OLIVE_WOOD);
+    public static final RegistryObject<BlockItem> STRIPPED_OLIVE_WOOD = blockItem(PDBlocks.STRIPPED_OLIVE_WOOD);
     public static final RegistryObject<BlockItem> OLIVE_LEAVES = blockItem(PDBlocks.OLIVE_LEAVES);
     public static final RegistryObject<BlockItem> OLIVE_SAPLING = blockItem(PDBlocks.OLIVE_SAPLING);
     public static final RegistryObject<BlockItem> SUMAC = blockItem(PDBlocks.SUMAC);

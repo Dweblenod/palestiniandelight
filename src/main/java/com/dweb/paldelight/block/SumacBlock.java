@@ -35,12 +35,12 @@ public class SumacBlock extends DoublePlantBlock implements BonemealableBlock {
     @SuppressWarnings("deprecation")
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        super.randomTick(state, level, pos, random);
+         super.randomTick(state, level, pos, random);
 
         if(level.isClientSide)
             return;
 
-        if(level.random.nextFloat() <= 0.1F && !state.getValue(BERRIES) && state.getValue(HALF).equals(DoubleBlockHalf.UPPER))
+        if(level.random.nextFloat() <= 0.05F && !state.getValue(BERRIES) && state.getValue(HALF).equals(DoubleBlockHalf.UPPER))
             level.setBlock(pos, state.setValue(BERRIES, true), UPDATE_ALL);
     }
 

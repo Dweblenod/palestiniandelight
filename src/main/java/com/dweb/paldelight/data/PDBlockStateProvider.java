@@ -1,6 +1,7 @@
 package com.dweb.paldelight.data;
 
 import com.dweb.paldelight.PalDelight;
+import com.dweb.paldelight.block.OliveLeaves;
 import com.dweb.paldelight.item.PDItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -27,10 +28,24 @@ public class PDBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         log(OLIVE_LOG);
         log(STRIPPED_OLIVE_LOG);
-        simpleBlockWithItem(OLIVE_LEAVES.get());
+        wood(OLIVE_WOOD, OLIVE_LOG);
+        wood(STRIPPED_OLIVE_WOOD, STRIPPED_OLIVE_LOG);
+        {
+            ModelFile nonFruiting = cubeAll("olive_leaves");
+            ModelFile fruiting = cubeAll("olive_leaves_fruiting");
+            getVariantBuilder(OLIVE_LEAVES.get())
+                    .partialState().with(OliveLeaves.FRUITING, true).modelForState().modelFile(fruiting).addModel()
+                    .partialState().with(OliveLeaves.FRUITING, false).modelForState().modelFile(nonFruiting).addModel();
+            simpleBlockItem(OLIVE_LEAVES.get(), nonFruiting);
+        }
         flatItem(PDItems.OLIVE_SAPLING, PDBlockStateProvider::textureLocation);
 
         flatItem(PDItems.SUMAC, id -> textureLocation(id.withSuffix("_top_fruiting")));
+    }
+    
+    public ModelFile cubeAll(String name)
+    {
+        return models().cubeAll(name, textureLocation(name));
     }
 
     public void flatItem(RegistryObject<? extends BlockItem> item, Function<ResourceLocation, ResourceLocation> textureProvider)
@@ -40,8 +55,12 @@ public class PDBlockStateProvider extends BlockStateProvider {
                 textureProvider.apply(item.getId()));
     }
 
-    public void log(RegistryObject<Block> block) {
-        rotatedPillarPlusItem(block, blockId -> models().cubeColumn(blockId.getPath(), textureLocation(blockId), textureLocation(blockId).withSuffix("_top")));
+    public void log(RegistryObject<Block> log) {
+        rotatedPillarPlusItem(log, blockId -> models().cubeColumn(blockId.getPath(), textureLocation(blockId), textureLocation(blockId).withSuffix("_top")));
+    }
+    
+    public void wood(RegistryObject<Block> wood, RegistryObject<Block> log) {
+        rotatedPillarPlusItem(wood, blockId -> models().cubeColumn(blockId.getPath(), textureLocation(log.getId()), textureLocation(log.getId())));
     }
 
     public void simpleBlockWithItem(Block block) {

@@ -1,9 +1,9 @@
 {
-  "feature": "paldelight:olive_tree",
+  "feature": "paldelight:ancient_olive_tree",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 4
+      "chance": 110
     },
     {
       "type": "minecraft:in_square"

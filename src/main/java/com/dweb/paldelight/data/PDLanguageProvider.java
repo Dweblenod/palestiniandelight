@@ -28,6 +28,8 @@ public class PDLanguageProvider extends LanguageProvider {
 
         addBlock(PDBlocks.OLIVE_LOG, "Olive Log");
         addBlock(PDBlocks.STRIPPED_OLIVE_LOG, "Stripped Olive Log");
+        addBlock(PDBlocks.OLIVE_WOOD, "Olive Wood");
+        addBlock(PDBlocks.STRIPPED_OLIVE_WOOD, "Stripped Olive Wood");
         addBlock(PDBlocks.OLIVE_LEAVES, "Olive Leaves");
         addBlock(PDBlocks.OLIVE_SAPLING, "Olive Sapling");
         addItem(PDItems.SUMAC, "Sumac");
