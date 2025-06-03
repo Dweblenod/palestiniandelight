@@ -1,7 +1,7 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "farmersdelight"
     }
   ],
@@ -16,6 +16,6 @@
   "recipe_book_tab": "misc",
   "result": {
     "count": 1,
-    "item": "paldelight:rose_water"
+    "id": "paldelight:rose_water"
   }
 }

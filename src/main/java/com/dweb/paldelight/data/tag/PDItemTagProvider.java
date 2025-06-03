@@ -11,7 +11,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -25,12 +25,18 @@ public class PDItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         copy(PDTags.Blocks.OLIVE_LOGS, PDTags.Items.OLIVE_LOGS);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
-        tag(OLIVE).add(PDItems.OLIVE.get());
+        tag(OLIVE_FORGE).add(PDItems.OLIVE.get());
+        tag(OLIVE_C).add(PDItems.OLIVE.get());
     }
     
-    public static final TagKey<Item> OLIVE = forgeTag("vegetables/olive");
+    public static final TagKey<Item> OLIVE_FORGE = forgeTag("vegetables/olive"); //legacy pams
+    public static final TagKey<Item> OLIVE_C = cTag("olive"); //not based off anything
     
     private static TagKey<Item> forgeTag(String name) {
-        return ItemTags.create(new ResourceLocation("forge", name));
+        return ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", name));
+    }
+    
+    private static TagKey<Item> cTag(String name) {
+        return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", name));
     }
 }

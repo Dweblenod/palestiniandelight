@@ -1,7 +1,7 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "pamhc2foodcore"
     }
   ],
@@ -11,23 +11,20 @@
       "tag": "forge:tool_bakeware"
     },
     {
-      "tag": "forge:dough"
+      "tag": "c:dough"
     },
     {
-      "tag": "forge:cheese"
+      "tag": "paldelight:fatayer_filling"
     },
     {
-      "tag": "forge:cream"
+      "tag": "c:crops/onion"
     },
     {
-      "item": "minecraft:sugar"
-    },
-    {
-      "item": "paldelight:rose_water"
+      "item": "paldelight:sumac_berries"
     }
   ],
   "result": {
     "count": 2,
-    "item": "paldelight:knafeh"
+    "id": "paldelight:fatayer"
   }
 }

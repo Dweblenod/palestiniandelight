@@ -1,14 +1,14 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "pamhc2foodcore"
     }
   ],
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "forge:tool_pot"
+      "tag": "c:tool_pot"
     },
     {
       "item": "minecraft:glass_bottle"
@@ -19,6 +19,6 @@
   ],
   "result": {
     "count": 1,
-    "item": "paldelight:rose_water"
+    "id": "paldelight:rose_water"
   }
 }

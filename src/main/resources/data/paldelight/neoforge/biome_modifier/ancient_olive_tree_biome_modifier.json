@@ -1,9 +1,9 @@
 {
-  "type": "forge:add_features",
+  "type": "neoforge:add_features",
   "biomes": [
     "savanna",
     "wooded_badlands"
   ],
-  "features": "paldelight:olive_tree",
+  "features": "paldelight:ancient_olive_tree",
   "step": "vegetal_decoration"
 }

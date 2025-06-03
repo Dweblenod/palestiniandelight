@@ -1,7 +1,7 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "farmersdelight"
     }
   ],
@@ -10,13 +10,13 @@
   "experience": 1.2,
   "ingredients": [
     {
-      "tag": "forge:dough"
+      "tag": "c:foods/dough"
     },
     {
       "tag": "paldelight:fatayer_filling"
     },
     {
-      "tag": "forge:crops/onion"
+      "tag": "c:foods/onion"
     },
     {
       "item": "paldelight:sumac_berries"
@@ -25,6 +25,6 @@
   "recipe_book_tab": "misc",
   "result": {
     "count": 2,
-    "item": "paldelight:fatayer"
+    "id": "paldelight:fatayer"
   }
 }

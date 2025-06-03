@@ -4,6 +4,17 @@ Do your own Changelog in the [Keep a Changelog](https://keepachangelog.com/en/1.
 
 ## [Unreleased]
 
+## [1.21.1-1.1.0] - 2025-06-01
+
+- Updated to run with Minecraft 1.21.1 / Neoforge 21.1
+
+### Fixed
+- Olives logs now in logs item tag
+
+### Contributors for this release
+
+- Dweblenod
+
 ## [1.20.1-1.1.0] - 2024-11-17
 
 ### As of this update, the mod is no longer made using MCreator.
