@@ -1,7 +1,7 @@
 package com.dweb.paldelight.data;
 
 import com.dweb.paldelight.block.PDBlocks;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -24,20 +24,20 @@ import static com.dweb.paldelight.world.gen.PDConfiguredFeatures.*;
 public final class PDConfiguredFeatureProvider {
     public static final BeehiveDecorator BEEHIVE_DECORATOR = new BeehiveDecorator(0.02F);
     public static final int OLIVE_TREE_TRIES = 2;
-
-    public static void register(BootstapContext<ConfiguredFeature<?, ?>> context) {
+    
+    public static void register(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         //HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
-
+        
         context.register(OLIVE_TREE, new ConfiguredFeature<>(Feature.TREE, createStraightBlobOliveTree(false, 4, 2, 0).build()));
         context.register(OLIVE_TREE_BEES, new ConfiguredFeature<>(Feature.TREE, createStraightBlobOliveTree(true, 4, 2, 0).build()));
-
+        
         context.register(FANCY_OLIVE_TREE, new ConfiguredFeature<>(Feature.TREE, createFancyOliveTree(false, 5, 2, 2).build()));
         context.register(FANCY_OLIVE_TREE_BEES, new ConfiguredFeature<>(Feature.TREE, createFancyOliveTree(true, 5, 2, 2).build()));
-
+        
         context.register(ANCIENT_OLIVE_TREE, new ConfiguredFeature<>(Feature.TREE, createAncientOliveTree(false, 5, 3, 3).build()));
         context.register(ANCIENT_OLIVE_TREE_BEES, new ConfiguredFeature<>(Feature.TREE, createAncientOliveTree(true, 5, 3, 3).build()));
     }
-
+    
     private static TreeConfiguration.TreeConfigurationBuilder createStraightBlobOliveTree(boolean bees, int baseHeight, int heightRandA, int heightRandB) {
         return new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(PDBlocks.OLIVE_LOG.get()),
@@ -47,7 +47,7 @@ public final class PDConfiguredFeatureProvider {
                 new TwoLayersFeatureSize(1, 0, 1))
                 .dirt(BlockStateProvider.simple(Blocks.ROOTED_DIRT)).decorators(bees ? List.of(BEEHIVE_DECORATOR) : List.of()).forceDirt().ignoreVines();
     }
-
+    
     private static TreeConfiguration.TreeConfigurationBuilder createFancyOliveTree(boolean bees, int baseHeight, int heightRandA, int heightRandB) {
         return new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(PDBlocks.OLIVE_LOG.get()),
@@ -57,7 +57,7 @@ public final class PDConfiguredFeatureProvider {
                 new TwoLayersFeatureSize(1, 0, 2, OptionalInt.of(4)))
                 .dirt(BlockStateProvider.simple(Blocks.ROOTED_DIRT)).decorators(bees ? List.of(BEEHIVE_DECORATOR) : List.of()).forceDirt().ignoreVines();
     }
-
+    
     private static TreeConfiguration.TreeConfigurationBuilder createAncientOliveTree(boolean bees, int baseHeight, int heightRandA, int heightRandB) {
         return new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(PDBlocks.OLIVE_LOG.get()),

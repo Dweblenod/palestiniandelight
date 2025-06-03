@@ -9,16 +9,16 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-@Mod.EventBusSubscriber(modid = PalDelight.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = PalDelight.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class PDDataGenerators {
     
     @SubscribeEvent
@@ -29,7 +29,7 @@ public class PDDataGenerators {
         var builtinEntries = generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(packOutput, event.getLookupProvider(), registrySetBuilder(), Set.of(PalDelight.MOD_ID)));
         CompletableFuture<HolderLookup.Provider> lookupProvider = builtinEntries.getRegistryProvider();
         
-        generator.addProvider(event.includeServer(), PDLootTableProvider.providers(packOutput));
+        generator.addProvider(event.includeServer(), PDLootTableProvider.providers(packOutput, lookupProvider));
         
         var blockTags = generator.addProvider(event.includeServer(), new PDBlockTagProvider(packOutput, lookupProvider, fileHelper));
         generator.addProvider(event.includeServer(), new PDItemTagProvider(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));

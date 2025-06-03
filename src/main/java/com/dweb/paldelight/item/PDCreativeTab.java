@@ -4,14 +4,15 @@ import com.dweb.paldelight.PalDelight;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 public class PDCreativeTab {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, PalDelight.MOD_ID);
     
     public static final String TAB_TITLE = "item_group.paldelight.paldelight";
-    public static final RegistryObject<CreativeModeTab> PD_TAB = CREATIVE_MODE_TABS.register("paldelight", () -> CreativeModeTab.builder()
+    public static final Supplier<CreativeModeTab> PD_TAB = CREATIVE_MODE_TABS.register("paldelight", () -> CreativeModeTab.builder()
             .title(Component.translatable(TAB_TITLE))
             .icon(() -> PDItems.OLIVE.get().getDefaultInstance())
             .displayItems(PDCreativeTab::addDisplayItems).build()

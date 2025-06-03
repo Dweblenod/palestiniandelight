@@ -6,38 +6,36 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.function.Supplier;
 
-
 public final class PDItemModelProvider extends ItemModelProvider {
-
+    
     public PDItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, PalDelight.MOD_ID, existingFileHelper);
     }
-
+    
     @Override
     protected void registerModels() {
         simpleItem(PDItems.OLIVE);
         simpleItem(PDItems.OLIVE_OIL);
         simpleItem(PDItems.SUMAC_BERRIES);
         simpleItem(PDItems.ROSE_WATER);
-
+        
         simpleItem(PDItems.FATAYER);
         simpleItem(PDItems.KNAFEH);
     }
-
-    private ItemModelBuilder simpleItem(Supplier<? extends Item> item)
-    {
+    
+    private ItemModelBuilder simpleItem(Supplier<? extends Item> item) {
         String itemIdPath = BuiltInRegistries.ITEM.getKey(item.get()).getPath();
         ResourceLocation itemName = PalDelight.id(itemIdPath);
-
+        
         return withExistingParent(itemName.getPath(),
-                new ResourceLocation("item/generated"))
+                ResourceLocation.withDefaultNamespace("item/generated"))
                 .texture("layer0", PalDelight.id(ModelProvider.ITEM_FOLDER + "/" + itemIdPath));
     }
 }

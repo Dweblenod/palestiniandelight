@@ -4,10 +4,14 @@ import com.dweb.paldelight.PalDelight;
 import com.dweb.paldelight.block.OliveLeaves;
 import com.dweb.paldelight.item.PDItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -28,8 +32,8 @@ import static com.dweb.paldelight.block.PDBlocks.*;
 public class PDBlockLootTables extends BlockLootSubProvider {
     private static final float[] OLIVE_LEAVES_RESOURCES_CHANCES = new float[]{0.02F, 0.022222223F, 0.025F, 0.033333335F, 0.1F}; //copy of NORMAL_LEAVES_STICK_CHANCES
     
-    PDBlockLootTables() {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+    PDBlockLootTables(HolderLookup.Provider registries) {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
     
     @Override
@@ -47,15 +51,17 @@ public class PDBlockLootTables extends BlockLootSubProvider {
     }
     
     protected LootTable.Builder createOliveLeavesDrops(Block leavesBlock, Block saplingBlock, float... chances) {
+        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        Holder<Enchantment> fortuneHolder = registrylookup.getOrThrow(Enchantments.FORTUNE);
         LootItemCondition.Builder isFruitingBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(OLIVE_LEAVES.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OliveLeaves.FRUITING, true));
         
         return createSilkTouchOrShearsDispatchTable(leavesBlock, applyExplosionCondition(leavesBlock, LootItem.lootTableItem(saplingBlock))
-                .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, chances)))
-                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_SHEARS.or(HAS_SILK_TOUCH).invert())
-                        .add(applyExplosionDecay(leavesBlock, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, OLIVE_LEAVES_RESOURCES_CHANCES)))
+                .when(BonusLevelTableCondition.bonusLevelFlatChance(fortuneHolder, chances)))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_SHEARS.or(this.hasSilkTouch()).invert())
+                        .add(applyExplosionDecay(leavesBlock, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))).when(BonusLevelTableCondition.bonusLevelFlatChance(fortuneHolder, OLIVE_LEAVES_RESOURCES_CHANCES)))
                 )
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(isFruitingBuilder)
-                        .add(applyExplosionDecay(leavesBlock, LootItem.lootTableItem(PDItems.OLIVE.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, OLIVE_LEAVES_RESOURCES_CHANCES)))
+                        .add(applyExplosionDecay(leavesBlock, LootItem.lootTableItem(PDItems.OLIVE.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))).when(BonusLevelTableCondition.bonusLevelFlatChance(fortuneHolder, OLIVE_LEAVES_RESOURCES_CHANCES)))
                 );
     }
     

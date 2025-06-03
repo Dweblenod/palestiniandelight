@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 public class SumacBerriesItem extends Item {
 
     public SumacBerriesItem(Properties properties) {
-        super(properties.food(new FoodProperties.Builder().nutrition(1).saturationMod(0.1f).alwaysEat().fast().build()));
+        super(properties.food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.1f).alwaysEdible().fast().build()));
     }
 
     @Override

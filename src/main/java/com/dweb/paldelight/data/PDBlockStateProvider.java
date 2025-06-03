@@ -8,11 +8,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.ModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;
@@ -49,17 +50,17 @@ public class PDBlockStateProvider extends BlockStateProvider {
         return models().cubeAll(name, textureLocation(name));
     }
     
-    public void flatItem(RegistryObject<? extends BlockItem> item, Function<ResourceLocation, ResourceLocation> textureProvider) {
+    public void flatItem(DeferredItem<? extends BlockItem> item, Function<ResourceLocation, ResourceLocation> textureProvider) {
         itemModels().withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
+                ResourceLocation.withDefaultNamespace("item/generated")).texture("layer0",
                 textureProvider.apply(item.getId()));
     }
     
-    public void log(RegistryObject<Block> log) {
+    public void log(DeferredBlock<Block> log) {
         rotatedPillarPlusItem(log, blockId -> models().cubeColumn(blockId.getPath(), textureLocation(blockId), textureLocation(blockId).withSuffix("_top")));
     }
     
-    public void wood(RegistryObject<Block> wood, RegistryObject<Block> log) {
+    public void wood(DeferredBlock<Block> wood, DeferredBlock<Block> log) {
         rotatedPillarPlusItem(wood, blockId -> models().cubeColumn(blockId.getPath(), textureLocation(log.getId()), textureLocation(log.getId())));
     }
     
@@ -68,7 +69,7 @@ public class PDBlockStateProvider extends BlockStateProvider {
         simpleBlockItem(block, cubeAll(block));
     }
     
-    public void simpleBlock(RegistryObject<? extends Block> block, Function<ResourceLocation, ModelFile> modelProvider) {
+    public void simpleBlock(DeferredBlock<? extends Block> block, Function<ResourceLocation, ModelFile> modelProvider) {
         simpleBlock(block.get(), modelProvider.apply(block.getId()));
     }
     
@@ -82,7 +83,7 @@ public class PDBlockStateProvider extends BlockStateProvider {
         return PalDelight.id(ModelProvider.BLOCK_FOLDER + "/" + blockName);
     }
     
-    public void rotatedPillarPlusItem(RegistryObject<Block> block, Function<ResourceLocation, ModelFile> modelProvider) {
+    public void rotatedPillarPlusItem(DeferredBlock<Block> block, Function<ResourceLocation, ModelFile> modelProvider) {
         ModelFile model = modelProvider.apply(block.getId());
         axisBlock((RotatedPillarBlock) block.get(), model, model);
         simpleBlockItem(block.get(), model);
