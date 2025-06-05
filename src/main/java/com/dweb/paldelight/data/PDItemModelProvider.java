@@ -28,6 +28,7 @@ public final class PDItemModelProvider extends ItemModelProvider {
         
         simpleItem(PDItems.FATAYER);
         simpleItem(PDItems.KNAFEH);
+        simpleItem(PDItems.MAQLUBA);
     }
     
     private ItemModelBuilder simpleItem(Supplier<? extends Item> item) {

@@ -28,6 +28,7 @@ public class PDCreativeTab {
         
         output.accept(PDItems.FATAYER.get());
         output.accept(PDItems.KNAFEH.get());
+        output.accept(PDItems.MAQLUBA.get());
         
         output.accept(PDItems.OLIVE_LOG.get());
         output.accept(PDItems.STRIPPED_OLIVE_LOG.get());

@@ -16,7 +16,7 @@
   ],
   "type": "farmersdelight:cooking",
   "cookingtime": 200,
-  "experience": 1.2,
+  "experience": 1.4,
   "ingredients": [
     {
       "tag": "c:dough"

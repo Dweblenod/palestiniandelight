@@ -24,8 +24,10 @@ public class PDItems {
     public static final DeferredItem<Item> SUMAC_BERRIES = ITEMS.register("sumac_berries", () -> new SumacBerriesItem(new Item.Properties()));
     public static final DeferredItem<Item> ROSE_WATER = ITEMS.register("rose_water", () -> new BottledDrinkItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.1f).build())));
     
+    //TODO add comfort/nourishment if farmers installed
     public static final DeferredItem<Item> FATAYER = ITEMS.register("fatayer", () -> new Item(new Item.Properties().food(durationEatProperties(8, 0.8F, 24))));
     public static final DeferredItem<Item> KNAFEH = ITEMS.register("knafeh", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(0.6f).build())));
+    public static final DeferredItem<Item> MAQLUBA = ITEMS.register("maqluba", () -> new Item(new Item.Properties().craftRemainder(Items.BOWL).food(new FoodProperties.Builder().nutrition(14).saturationModifier(0.8f).build())));
     
     public static final DeferredItem<BlockItem> OLIVE_LOG = blockItem(PDBlocks.OLIVE_LOG);
     public static final DeferredItem<BlockItem> STRIPPED_OLIVE_LOG = blockItem(PDBlocks.STRIPPED_OLIVE_LOG);

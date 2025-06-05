@@ -27,6 +27,7 @@ public class PDLanguageProvider extends LanguageProvider {
         
         addItem(PDItems.FATAYER, "Fatayer");
         addItem(PDItems.KNAFEH, "Knafeh");
+        addItem(PDItems.MAQLUBA, "Maqluba");
         
         addBlock(PDBlocks.OLIVE_LOG, "Olive Log");
         addBlock(PDBlocks.STRIPPED_OLIVE_LOG, "Stripped Olive Log");
