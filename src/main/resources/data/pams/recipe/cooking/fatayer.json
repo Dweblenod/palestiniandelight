@@ -8,7 +8,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "forge:tool_bakeware"
+      "tag": "c:tool_bakeware"
     },
     {
       "tag": "c:dough"

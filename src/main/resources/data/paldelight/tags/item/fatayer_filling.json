@@ -1,0 +1,25 @@
+{
+  "values": [
+    "#c:raw_mutton",
+    {
+      "id": "#c:rawmutton",
+      "required": false
+    },
+    {
+      "id": "#c:cheese/cheese",
+      "required": false
+    },
+    {
+      "id": "#c:cheese",
+      "required": false
+    },
+    {
+      "id": "#c:vegetables/spinach",
+      "required": false
+    },
+    {
+      "id": "#c:crops/spinach",
+      "required": false
+    }
+  ]
+}

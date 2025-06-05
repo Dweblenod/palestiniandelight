@@ -43,7 +43,7 @@ public final class PDConfiguredFeatureProvider {
                 BlockStateProvider.simple(PDBlocks.OLIVE_LOG.get()),
                 new StraightTrunkPlacer(baseHeight, heightRandA, heightRandB),
                 BlockStateProvider.simple(PDBlocks.OLIVE_LEAVES.get()),
-                new BlobFoliagePlacer(ConstantInt.of(OLIVE_TREE_TRIES), ConstantInt.of(0), 3),
+                new BlobFoliagePlacer(ConstantInt.of(OLIVE_TREE_TRIES), ConstantInt.of(0), 2),
                 new TwoLayersFeatureSize(1, 0, 1))
                 .dirt(BlockStateProvider.simple(Blocks.ROOTED_DIRT)).decorators(bees ? List.of(BEEHIVE_DECORATOR) : List.of()).forceDirt().ignoreVines();
     }
@@ -53,7 +53,7 @@ public final class PDConfiguredFeatureProvider {
                 BlockStateProvider.simple(PDBlocks.OLIVE_LOG.get()),
                 new FancyTrunkPlacer(baseHeight, heightRandA, heightRandB),
                 BlockStateProvider.simple(PDBlocks.OLIVE_LEAVES.get()),
-                new FancyFoliagePlacer(ConstantInt.of(OLIVE_TREE_TRIES), ConstantInt.of(4), 4),
+                new FancyFoliagePlacer(ConstantInt.of(OLIVE_TREE_TRIES), ConstantInt.of(3), 3),
                 new TwoLayersFeatureSize(1, 0, 2, OptionalInt.of(4)))
                 .dirt(BlockStateProvider.simple(Blocks.ROOTED_DIRT)).decorators(bees ? List.of(BEEHIVE_DECORATOR) : List.of()).forceDirt().ignoreVines();
     }
@@ -63,7 +63,7 @@ public final class PDConfiguredFeatureProvider {
                 BlockStateProvider.simple(PDBlocks.OLIVE_LOG.get()),
                 new GiantTrunkPlacer(baseHeight, heightRandA, heightRandB),
                 BlockStateProvider.simple(PDBlocks.OLIVE_LEAVES.get()),
-                new FancyFoliagePlacer(ConstantInt.of(OLIVE_TREE_TRIES), ConstantInt.of(4), 5),
+                new FancyFoliagePlacer(ConstantInt.of(OLIVE_TREE_TRIES), ConstantInt.of(3), 4),
                 new TwoLayersFeatureSize(1, 0, 2, OptionalInt.of(4)))
                 .dirt(BlockStateProvider.simple(Blocks.ROOTED_DIRT)).decorators(bees ? List.of(BEEHIVE_DECORATOR) : List.of()).forceDirt();
     }

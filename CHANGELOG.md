@@ -8,6 +8,9 @@ Do your own Changelog in the [Keep a Changelog](https://keepachangelog.com/en/1.
 
 - Updated to run with Minecraft 1.21.1 / Neoforge 21.1
 
+### Changed
+- Shape and size of olive trees
+
 ### Fixed
 - Olives logs now in logs item tag
 
