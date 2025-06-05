@@ -4,7 +4,7 @@ Do your own Changelog in the [Keep a Changelog](https://keepachangelog.com/en/1.
 
 ## [Unreleased]
 
-## [1.21.1-1.2.0] - 2025-06-01
+## [1.21.1-1.2.0] - 2025-06-05
 
 - Updated to run with Minecraft 1.21.1 / Neoforge 21.1
 
