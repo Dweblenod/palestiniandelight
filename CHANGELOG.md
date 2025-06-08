@@ -4,18 +4,33 @@ Do your own Changelog in the [Keep a Changelog](https://keepachangelog.com/en/1.
 
 ## [Unreleased]
 
+### Added
+
+- Main dishes now how Farmers Delight potion effects if mod is loaded
+
+### Changed
+
+- Tweaked main dish nutrition and saturation values
+
+### Contributors for this release
+
+- Dweblenod
+
 ## [1.21.1-1.2.0] - 2025-06-05
 
 - Updated to run with Minecraft 1.21.1 / Neoforge 21.1
 
 ### Added
+
 - Maqluba
 
 ### Changed
+
 - Shape and size of olive trees
 - Tweaked knafeh cooking recipe times and experience
 
 ### Fixed
+
 - Olives logs now in logs item tag
 
 ### Contributors for this release
