@@ -23,6 +23,8 @@ public class PDLanguageProvider extends LanguageProvider {
         addItem(PDItems.OLIVE_OIL, "Olive Oil");
         addItem(PDItems.SUMAC_BERRIES, "Sumac Berries");
         addTooltip(PDItems.SUMAC_BERRIES, "Medicinal! Has a small chance of curing poison upon consumption.");
+        //addItem(PDItems.ZAATAR_SPRIG, "Za'atar Sprig");
+        //addTooltip(PDItems.ZAATAR_SPRIG, "Origanum syriacum");
         addItem(PDItems.ROSE_WATER, "Rose Water");
         
         addItem(PDItems.FATAYER, "Fatayer");
@@ -38,6 +40,7 @@ public class PDLanguageProvider extends LanguageProvider {
         addBlock(PDBlocks.OLIVE_LEAVES, "Olive Leaves");
         addBlock(PDBlocks.OLIVE_SAPLING, "Olive Sapling");
         addItem(PDItems.SUMAC, "Sumac");
+        addItem(PDItems.ZAATAR, "Za'atar");
         
         add(PDCreativeTab.TAB_TITLE, "Palestinian Delights");
     }

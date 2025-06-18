@@ -24,6 +24,7 @@ public final class PDItemModelProvider extends ItemModelProvider {
         simpleItem(PDItems.OLIVE);
         simpleItem(PDItems.OLIVE_OIL);
         simpleItem(PDItems.SUMAC_BERRIES);
+        //simpleItem(PDItems.ZAATAR_SPRIG);
         simpleItem(PDItems.ROSE_WATER);
         
         simpleItem(PDItems.FATAYER);

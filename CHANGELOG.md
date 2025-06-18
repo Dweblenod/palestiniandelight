@@ -6,11 +6,16 @@ Do your own Changelog in the [Keep a Changelog](https://keepachangelog.com/en/1.
 
 ### Added
 
-- Main dishes now how Farmers Delight potion effects if mod is loaded
+- Main dishes now have Farmers Delight potion effects if mod is loaded
+- Sumac/saplings/leaves can now be composted
 
 ### Changed
 
 - Tweaked main dish nutrition and saturation values
+
+### Fixed
+
+- Fatayer has an appropriate eat duration again
 
 ### Contributors for this release
 

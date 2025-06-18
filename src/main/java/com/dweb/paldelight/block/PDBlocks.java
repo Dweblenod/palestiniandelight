@@ -23,7 +23,6 @@ import java.util.function.Supplier;
 public class PDBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PalDelight.MOD_ID);
     
-    //public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
     public static final DeferredBlock<Block> OLIVE_LOG = BLOCKS.register("olive_log", () -> log(() -> PDBlocks.STRIPPED_OLIVE_LOG.get().defaultBlockState(), MapColor.COLOR_BROWN, MapColor.COLOR_BROWN));
     public static final DeferredBlock<Block> STRIPPED_OLIVE_LOG = BLOCKS.register("stripped_olive_log", () -> log(MapColor.COLOR_BROWN, MapColor.COLOR_BROWN));
     public static final DeferredBlock<Block> OLIVE_WOOD = BLOCKS.register("olive_wood", () -> log(() -> PDBlocks.STRIPPED_OLIVE_WOOD.get().defaultBlockState(), MapColor.COLOR_BROWN, MapColor.COLOR_BROWN));
@@ -34,6 +33,7 @@ public class PDBlocks {
     public static final DeferredBlock<Block> OLIVE_SAPLING = BLOCKS.register("olive_sapling", () -> new SaplingBlock(OliveTreeGrower.OLIVE_TREE_GROWER, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY)));
     
     public static final DeferredBlock<Block> SUMAC = BLOCKS.register("sumac", () -> new SumacBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().pushReaction(PushReaction.DESTROY).randomTicks()));
+    //public static final DeferredBlock<Block> ZAATAR = BLOCKS.register("zaatar", () -> new ZaatarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).sound(SoundType.GRASS).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().pushReaction(PushReaction.DESTROY).randomTicks()));
     
     private static PDLogBlock log(Supplier<BlockState> strippedVariant, MapColor topMapColor, MapColor sideMapColor) {
         return new PDLogBlock(BlockBehaviour.Properties.of().mapColor(

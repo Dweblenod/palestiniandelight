@@ -1,0 +1,17 @@
+{
+  "values": {
+    "paldelight:sumac": {
+      "chance": 0.4
+    },
+    "paldelight:sumac_berries": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "paldelight:olive_leaves": {
+      "chance": 0.3
+    },
+    "paldelight:olive_sapling": {
+      "chance": 0.3
+    }
+  }
+}

@@ -33,6 +33,7 @@ public class PDItems {
     //TODO olive_pomace, consider adding it to compost datamap
     public static final DeferredItem<Item> OLIVE_OIL = ITEMS.register("olive_oil", () -> new BottledDrinkItem(SoundEvents.HONEY_DRINK, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.5f).build())));
     public static final DeferredItem<Item> SUMAC_BERRIES = ITEMS.register("sumac_berries", () -> new SumacBerriesItem(new Item.Properties()));
+    //public static final DeferredItem<Item> ZAATAR_SPRIG = ITEMS.register("zaatar_sprig", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> ROSE_WATER = ITEMS.register("rose_water", () -> new BottledDrinkItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.1f).build())));
     
     public static final DeferredItem<Item> FATAYER = ITEMS.register("fatayer", () -> new Item(new Item.Properties().food(eatProperties(8, 0.8F, 1.2F, ModEffects.COMFORT, FoodValues.SHORT_DURATION))));
@@ -48,6 +49,7 @@ public class PDItems {
     public static final DeferredItem<BlockItem> OLIVE_LEAVES = blockItem(PDBlocks.OLIVE_LEAVES);
     public static final DeferredItem<BlockItem> OLIVE_SAPLING = blockItem(PDBlocks.OLIVE_SAPLING);
     public static final DeferredItem<BlockItem> SUMAC = blockItem(PDBlocks.SUMAC);
+    public static final DeferredItem<BlockItem> ZAATAR = blockItem(PDBlocks.ZAATAR);
     
     public static DeferredItem<BlockItem> blockItem(DeferredBlock<? extends Block> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
