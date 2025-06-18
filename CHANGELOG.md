@@ -4,10 +4,13 @@ Do your own Changelog in the [Keep a Changelog](https://keepachangelog.com/en/1.
 
 ## [Unreleased]
 
+## [1.21.1-1.3.0] - 2025-06-18
+
 ### Added
 
 - Main dishes now have Farmers Delight potion effects if mod is loaded
 - Sumac/saplings/leaves can now be composted
+- Olive plank stairs/slabs
 
 ### Changed
 

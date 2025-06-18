@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "paldelight:block/olive_planks",
+    "side": "paldelight:block/olive_planks",
+    "top": "paldelight:block/olive_planks"
+  }
+}

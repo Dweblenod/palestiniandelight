@@ -8,6 +8,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.ModelProvider;
@@ -32,6 +34,8 @@ public class PDBlockStateProvider extends BlockStateProvider {
         wood(OLIVE_WOOD, OLIVE_LOG);
         wood(STRIPPED_OLIVE_WOOD, STRIPPED_OLIVE_LOG);
         simpleBlockWithItem(OLIVE_PLANKS.get());
+        stairsWithItem(OLIVE_STAIRS.get(), "olive", textureLocation("olive_planks"));
+        slabWithItem(OLIVE_SLAB.get(), "olive", "olive_planks");
         simpleBlockWithItem(ORNATE_OLIVE_PLANKS.get());
         {
             ModelFile nonFruiting = cubeAll("olive_leaves");
@@ -71,6 +75,25 @@ public class PDBlockStateProvider extends BlockStateProvider {
     
     public void simpleBlock(DeferredBlock<? extends Block> block, Function<ResourceLocation, ModelFile> modelProvider) {
         simpleBlock(block.get(), modelProvider.apply(block.getId()));
+    }
+    
+    void stairsWithItem(Block block, String baseName, ResourceLocation texture)
+    {
+        ModelFile stairs = models().stairs(baseName + "_stairs", texture, texture, texture);
+        ModelFile stairsInner = models().stairsInner(baseName + "_inner_stairs", texture, texture, texture);
+        ModelFile stairsOuter = models().stairsOuter(baseName + "_outer_stairs", texture, texture, texture);
+        stairsBlock((StairBlock) block, stairs, stairsInner, stairsOuter);
+        simpleBlockItem(block, stairs);
+    }
+    
+    void slabWithItem(Block block, String baseName, String textureName)
+    {
+        ResourceLocation texture = textureLocation(textureName);
+        ModelFile slabBottom = models().slab(baseName + "_slab", texture, texture, texture);
+        ModelFile slabTop = models().slabTop(baseName + "_slab_top", texture, texture, texture);
+        ModelFile doubleSlab = models().getExistingFile(PalDelight.id(textureName));
+        slabBlock((SlabBlock) block, slabBottom, slabTop, doubleSlab);
+        simpleBlockItem(block, slabBottom);
     }
     
     @NotNull

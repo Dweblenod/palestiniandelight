@@ -36,11 +36,13 @@ public class PDLanguageProvider extends LanguageProvider {
         addBlock(PDBlocks.OLIVE_WOOD, "Olive Wood");
         addBlock(PDBlocks.STRIPPED_OLIVE_WOOD, "Stripped Olive Wood");
         addBlock(PDBlocks.OLIVE_PLANKS, "Olive Planks");
+        addBlock(PDBlocks.OLIVE_STAIRS, "Olive Stairs");
+        addBlock(PDBlocks.OLIVE_SLAB, "Olive Slab");
         addBlock(PDBlocks.ORNATE_OLIVE_PLANKS, "Ornate Olive Planks");
         addBlock(PDBlocks.OLIVE_LEAVES, "Olive Leaves");
         addBlock(PDBlocks.OLIVE_SAPLING, "Olive Sapling");
         addItem(PDItems.SUMAC, "Sumac");
-        addItem(PDItems.ZAATAR, "Za'atar");
+        //addItem(PDItems.ZAATAR, "Za'atar");
         
         add(PDCreativeTab.TAB_TITLE, "Palestinian Delights");
     }

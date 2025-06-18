@@ -35,6 +35,8 @@ public class PDCreativeTab {
         output.accept(PDItems.OLIVE_WOOD.get());
         output.accept(PDItems.STRIPPED_OLIVE_WOOD.get());
         output.accept(PDItems.OLIVE_PLANKS.get());
+        output.accept(PDItems.OLIVE_STAIRS.get());
+        output.accept(PDItems.OLIVE_SLAB.get());
         output.accept(PDItems.ORNATE_OLIVE_PLANKS.get());
         output.accept(PDItems.OLIVE_LEAVES.get());
         output.accept(PDItems.OLIVE_SAPLING.get());

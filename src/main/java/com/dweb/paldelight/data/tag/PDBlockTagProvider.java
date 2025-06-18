@@ -23,6 +23,8 @@ public class PDBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.OVERWORLD_NATURAL_LOGS).addTag(PDTags.Blocks.OLIVE_LOGS);
         
         tag(BlockTags.PLANKS).add(PDBlocks.OLIVE_PLANKS.get(), PDBlocks.ORNATE_OLIVE_PLANKS.get());
+        tag(BlockTags.WOODEN_STAIRS).add(PDBlocks.OLIVE_STAIRS.get());
+        tag(BlockTags.WOODEN_SLABS).add(PDBlocks.OLIVE_SLAB.get());
         tag(BlockTags.LEAVES).add(PDBlocks.OLIVE_LEAVES.get());
     }
 }

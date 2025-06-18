@@ -43,6 +43,8 @@ public class PDBlockLootTables extends BlockLootSubProvider {
         dropSelf(OLIVE_WOOD.get());
         dropSelf(STRIPPED_OLIVE_WOOD.get());
         dropSelf(OLIVE_PLANKS.get());
+        dropSelf(OLIVE_STAIRS.get());
+        add(OLIVE_SLAB.get(), this::createSlabItemTable);
         dropSelf(ORNATE_OLIVE_PLANKS.get());
         add(OLIVE_LEAVES.get(), (block) -> createOliveLeavesDrops(block, OLIVE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         dropSelf(OLIVE_SAPLING.get());

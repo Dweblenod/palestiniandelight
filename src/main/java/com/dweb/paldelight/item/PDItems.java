@@ -45,11 +45,13 @@ public class PDItems {
     public static final DeferredItem<BlockItem> OLIVE_WOOD = blockItem(PDBlocks.OLIVE_WOOD);
     public static final DeferredItem<BlockItem> STRIPPED_OLIVE_WOOD = blockItem(PDBlocks.STRIPPED_OLIVE_WOOD);
     public static final DeferredItem<BlockItem> OLIVE_PLANKS = blockItem(PDBlocks.OLIVE_PLANKS);
+    public static final DeferredItem<BlockItem> OLIVE_STAIRS = blockItem(PDBlocks.OLIVE_STAIRS);
+    public static final DeferredItem<BlockItem> OLIVE_SLAB = blockItem(PDBlocks.OLIVE_SLAB);
     public static final DeferredItem<BlockItem> ORNATE_OLIVE_PLANKS = blockItem(PDBlocks.ORNATE_OLIVE_PLANKS);
     public static final DeferredItem<BlockItem> OLIVE_LEAVES = blockItem(PDBlocks.OLIVE_LEAVES);
     public static final DeferredItem<BlockItem> OLIVE_SAPLING = blockItem(PDBlocks.OLIVE_SAPLING);
     public static final DeferredItem<BlockItem> SUMAC = blockItem(PDBlocks.SUMAC);
-    public static final DeferredItem<BlockItem> ZAATAR = blockItem(PDBlocks.ZAATAR);
+    //public static final DeferredItem<BlockItem> ZAATAR = blockItem(PDBlocks.ZAATAR);
     
     public static DeferredItem<BlockItem> blockItem(DeferredBlock<? extends Block> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
